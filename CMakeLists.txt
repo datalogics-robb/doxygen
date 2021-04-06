@@ -116,7 +116,13 @@ if (sqlite3)
   endif()
 endif()
 
-find_package(Iconv REQUIRED)
+if(CMAKE_SYSTEM_NAME STREQUAL "AIX" AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  # CMake's check for iconv fails on AIX when iconv is there and properly working
+  set(Iconv_INCLUDE_DIR  "/usr/include")
+  set(Iconv_LIBRARY "-liconv")
+else(CMAKE_SYSTEM_NAME STREQUAL "AIX" AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  find_package(Iconv REQUIRED)
+endif(CMAKE_SYSTEM_NAME STREQUAL "AIX" AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
 include_directories(${ICONV_INCLUDE_DIR})
 
 

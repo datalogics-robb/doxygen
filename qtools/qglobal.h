@@ -38,6 +38,7 @@
 #ifndef QGLOBAL_H
 #define QGLOBAL_H
 
+#include <cinttypes>
 
 #define QT_VERSION	223
 #define QT_VERSION_STR	"2.2.3"

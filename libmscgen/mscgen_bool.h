@@ -23,6 +23,14 @@
 #ifndef MSCGEN_BOOL_H
 #define MSCGEN_BOOL_H
 
+#if defined(FALSE)
+#undef FALSE
+#endif
+
+#if defined(TRUE)
+#undef TRUE
+#endif
+
 typedef enum
 {
     FALSE = 0,
